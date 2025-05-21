@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinic Registration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .confirmation {
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+      display: none;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Patient Registration</h2>
+  <form id="registrationForm">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" required>
+
+    <label for="appointment">Preferred Appointment Date:</label>
+    <input type="date" id="appointment" required>
+
+    <label for="message">Message/Comments:</label>
+    <textarea id="message" rows="4"></textarea>
+
+    <button type="submit">Submit</button>
+
+    <div class="confirmation" id="confirmation">Thank you! Your registration has been received.</div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("registrationForm");
+  const confirmation = document.getElementById("confirmation");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    confirmation.style.display = "block";
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
